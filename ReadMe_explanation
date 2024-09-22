@@ -1,0 +1,31 @@
+Machine Learning Model for Predicting Breast Cancer Relapse Risk
+This repository contains a machine learning model designed to classify the risk of relapse in breast cancer patients. Utilizing public gene expression data from The Cancer Genome Atlas (TCGA) and built with Python and Scikit-learn, this project offers an accessible alternative to proprietary tests like MammaPrint.
+
+What's Inside
+The code is organized into four main files, each serving a specific purpose in the analysis:
+
+1. EDA (Exploratory Data Analysis)
+Performs initial data visualization and analysis.
+Includes descriptive statistics, graphical representations of key variable distributions, and correlation calculations between gene expressions and relapse risk.
+
+2. Train-test_split
+Constructs a machine learning pipeline for data preprocessing and classification.
+Pipeline steps:
+Logarithmic transformation to handle skewed distributions.
+Low variance feature removal.
+Quantile normalization.
+Feature selection using False Discovery Rate (FDR).
+Classification using a RidgeClassifier with cross-validation.
+Splits the dataset into training and testing sets for preliminary model evaluation using metrics like accuracy, recall, F1-score, and ROC curve.
+
+3. WithNestedCV
+Implements the same pipeline as above but uses nested cross-validation for a more robust model evaluation.
+Utilizes repeated K-Fold cross-validation (10 folds, 10 repeats) to obtain distributions of performance metrics.
+Results are visualized using box plots for metrics such as precision, recall, F1-score, accuracy, and ROC AUC.
+
+4. coefs
+Focuses on visualizing the coefficients from the trained models.
+Helps identify the most relevant genes affecting relapse risk classification.
+
+Why It's Important
+Understanding the molecular aspects of breast cancer is crucial for improving treatment options. By providing a free and open-source model that replicates the results of expensive tests, this project aims to democratize access to important prognostic tools for patients and healthcare professionals alike.
